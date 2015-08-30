@@ -1,0 +1,43 @@
+#include <vector>
+#include <map>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <cstdlib>
+#include <random>
+#include <chrono>
+#include <ctime>
+
+using namespace std;
+
+class DataGenerator {
+
+  private:
+     string _delimiter;
+     typedef chrono::high_resolution_clock _clock;
+     default_random_engine _generator;
+     vector<string> _firstNames;
+     vector<string> _lastNames;
+     vector<string> _cities;
+     vector<string> _states;
+     void initGenerator();
+  public:
+     DataGenerator(string d); //Constructor
+     string firstName(); // returns a random firstName
+     string lastName(); //returns a random lastName
+     string city(); //returns a random city
+     string state(); //returns a random state
+     vector<string> firstNames(); //returns a copy of  _firstNames
+     vector<string> lastNames(); //retirms a copy of _lastNames
+     void delimiter(string d); //sets the delimiter
+     string delimiter(); //returns the delimiter
+     string alpha(unsigned len); //returns an alpha string of len size
+     string numeric(unsigned len); //returns a numeric string of len size
+     string alphanum(unsigned len); //returns a numeric string of len size
+     string randomElement(vector<string> &items);
+
+};
+
+
+
