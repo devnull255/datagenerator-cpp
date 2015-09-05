@@ -13,12 +13,12 @@ $(LIBDIR)/datagenerator.o: $(SRCDIR)/datagenerator.cpp
 	mkdir -p $(LIBDIR)
 	$(CC) -c $(CFLAGS) $(SRCDIR)/datagenerator.cpp -o $(LIBDIR)/datagenerator.o
 
-$(BINDIR)/test_dg_firstname: $(LIBDIR)/datagenerator.o
+$(BINDIR)/test_dg_firstname: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_firstname.cpp
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_firstname.cpp -o $(BINDIR)/test_dg_firstname
-$(BINDIR)/test_dg_lastname: $(LIBDIR)/datagenerator.o
+$(BINDIR)/test_dg_lastname: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_lastname.cpp
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_lastname.cpp -o $(BINDIR)/test_dg_lastname
 
-all: $(BINDIR)/dg $(BINDIR)/test_dg_lastname
+all: $(BINDIR)/dg $(BINDIR)/test_dg_lastname $(BINDIR)/test_dg_firstname
 
 clean:
 	rm -rf $(BINDIR)
