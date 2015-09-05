@@ -9,7 +9,7 @@ $(BINDIR)/dg: $(LIBDIR)/datagenerator.o
 	mkdir -p $(BINDIR)
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/dg.cpp -o $(BINDIR)/dg
 
-$(LIBDIR)/datagenerator.o:
+$(LIBDIR)/datagenerator.o: $(SRCDIR)/datagenerator.cpp
 	mkdir -p $(LIBDIR)
 	$(CC) -c $(CFLAGS) $(SRCDIR)/datagenerator.cpp -o $(LIBDIR)/datagenerator.o
 
@@ -26,5 +26,5 @@ clean:
 	find . -name '*.o' -exec rm -f \{\} \;
 
 test:
-	bin/test_dg_lastname
 	bin/test_dg_firstname
+	bin/test_dg_lastname

@@ -34,7 +34,7 @@ vector<string> DataGenerator::firstNames() {
 }
 
 vector<string> DataGenerator::lastNames() {
-
+  return _lastNames;
 }
 
 void DataGenerator::delimiter(string d) {
