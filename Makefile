@@ -15,8 +15,10 @@ $(LIBDIR)/datagenerator.o:
 
 $(BINDIR)/test_dg_firstname: $(LIBDIR)/datagenerator.o
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_firstname.cpp -o $(BINDIR)/test_dg_firstname
+$(BINDIR)/test_dg_lastname: $(LIBDIR)/datagenerator.o
+	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_lastname.cpp -o $(BINDIR)/test_dg_lastname
 
-all: $(BINDIR)/dg $(BINDIR)/test_dg_firstname
+all: $(BINDIR)/dg $(BINDIR)/test_dg_lastname
 
 clean:
 	rm -rf $(BINDIR)
@@ -24,4 +26,5 @@ clean:
 	find . -name '*.o' -exec rm -f \{\} \;
 
 test:
+	bin/test_dg_lastname
 	bin/test_dg_firstname
