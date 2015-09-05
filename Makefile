@@ -1,16 +1,27 @@
 #makefile
 CC = c++
 CFLAGS = -std=c++11
+SRCDIR = src
+LIBDIR = lib
+BINDIR = bin
 
-dg: datagenerator.o 
-	$(CC) $(CFLAGS) datagenerator.o dg.cpp -o ../dg
+$(BINDIR)/dg: $(LIBDIR)/datagenerator.o 
+	mkdir -p $(BINDIR)
+	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/dg.cpp -o $(BINDIR)/dg
 
-datagenerator.o:
-	$(CC) -c $(CFLAGS) datagenerator.cpp
+$(LIBDIR)/datagenerator.o:
+	mkdir -p $(LIBDIR)
+	$(CC) -c $(CFLAGS) $(SRCDIR)/datagenerator.cpp -o $(LIBDIR)/datagenerator.o
 
-test_dg_firstnames: datagenerator.o
-	$(CC) datagenerator.o test_dg_firstnames.cpp -o test_dg_firstnames
+$(BINDIR)/test_dg_firstname: $(LIBDIR)/datagenerator.o
+	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_firstname.cpp -o $(BINDIR)/test_dg_firstname
+
+all: $(BINDIR)/dg $(BINDIR)/test_dg_firstname
 
 clean:
-	rm -f ../dg
-	rm *.o
+	rm -rf $(BINDIR)
+	rm -rf $(LIBDIR)
+	find . -name '*.o' -exec rm -f \{\} \;
+
+test:
+	bin/test_dg_firstname
