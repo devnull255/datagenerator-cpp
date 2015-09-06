@@ -10,13 +10,11 @@ map<string,string> parse_args(int argc,char **argv) {
    cout << argv[i] << endl;
  }
  cout << "this is parse_args." << endl;
+ return arguments;
 }
 
 int main(int argc, char **argv) {
   cout << "Hello, World\n";
-  vector<string> valid_opts = {"--specstr","--rec-count","--help"};
-  vector<string>::iterator v;
-  for (v = valid_opts.begin();v != valid_opts.end();v++)
-    cout << *v << endl; 
+  map<string,string> args = parse_args(argc,argv);
 }
 
