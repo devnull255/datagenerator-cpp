@@ -5,7 +5,7 @@ SRCDIR = src
 LIBDIR = lib
 BINDIR = bin
 
-$(BINDIR)/dg: $(LIBDIR)/datagenerator.o 
+$(BINDIR)/dg: $(LIBDIR)/datagenerator.o $(SRCDIR)/dg.cpp
 	mkdir -p $(BINDIR)
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/dg.cpp -o $(BINDIR)/dg
 
