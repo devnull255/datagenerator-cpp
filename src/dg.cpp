@@ -2,9 +2,8 @@
 #include <map>
 map<string,string> parse_args(int argc,char **argv) {
  map<string,string> arguments;
- arguments["--specstr"] = "";
- arguments["--rec-count"] = "10";
- arguments["--help"] = "Usage: dg [options";
+ arguments["specstr"] = "";
+ arguments["rec-count"] = "10";
  
  for (int i=1; i < argc; i++) {
    cout << argv[i] << endl;

@@ -23,13 +23,15 @@ class DataGenerator {
      vector<string> _states;
      void initGenerator();
   public:
-     DataGenerator(string d); //Constructor
+     DataGenerator(string d="|"); //Constructor
      string firstName(); // returns a random firstName
      string lastName(); //returns a random lastName
      string city(); //returns a random city
      string state(); //returns a random state
      vector<string> firstNames(); //returns a copy of  _firstNames
      vector<string> lastNames(); //retirms a copy of _lastNames
+     vector<string> cities(); // returns a copy of _cities
+     vector<string> states(); // returns a copy of _states
      void delimiter(string d); //sets the delimiter
      string delimiter(); //returns the delimiter
      string alpha(unsigned len); //returns an alpha string of len size

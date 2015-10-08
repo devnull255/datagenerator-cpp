@@ -1,7 +1,7 @@
 #include "datagenerator"
 
 //Datagenerator::Datagenerator - Constructor
-DataGenerator::DataGenerator(string d="|") {
+DataGenerator::DataGenerator(string d) {
   //Datagenerator constructor that initializes a Datagenerator
   //object
   _delimiter = d;
@@ -10,6 +10,13 @@ DataGenerator::DataGenerator(string d="|") {
     "Hayes","Ingerson","Jackson","Kaplan","Lundeen","Mabin","Nyquist",
     "Oliver","Peterson","Queen","Rhodes","Stark","Taylor","Underwood",
     "Vasquez","Williams","Xavier","Yarl","Zane"};
+  _cities = {"Metropolis","Gotham City","Star City","Champion City","New Haven",
+    "Hell's Kitchen","Kankakee","Washington","Grand Rapids","Detroit","Lansing",
+    "Minneapolis","Arden Hills","Shoreview","Edina","Eden"};
+  _states = {"AL","AK","AS","CA","CO","CN","DE","FL","GA","HA","ID","IL","IN",
+             "IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE",
+             "NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC",
+             "SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"};
   initGenerator();
 }
 
@@ -23,10 +30,11 @@ string DataGenerator::lastName(){
 }
 
 string DataGenerator::city() {
+ return randomElement(_cities);
 }
 
 string DataGenerator::state() {
-
+ return randomElement(_states);
 }
 
 vector<string> DataGenerator::firstNames() {
@@ -35,6 +43,14 @@ vector<string> DataGenerator::firstNames() {
 
 vector<string> DataGenerator::lastNames() {
   return _lastNames;
+}
+
+vector<string> DataGenerator::cities() {
+  return _cities;
+}
+
+vector<string> DataGenerator::states() {
+  return _states;
 }
 
 void DataGenerator::delimiter(string d) {
