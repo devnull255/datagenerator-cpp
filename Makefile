@@ -15,6 +15,7 @@ $(LIBDIR)/datagenerator.o: $(SRCDIR)/datagenerator.cpp
 
 $(BINDIR)/test_dg_firstname: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_firstname.cpp
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_firstname.cpp -o $(BINDIR)/test_dg_firstname
+
 $(BINDIR)/test_dg_lastname: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_lastname.cpp
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_lastname.cpp -o $(BINDIR)/test_dg_lastname
 
@@ -24,7 +25,10 @@ $(BINDIR)/test_dg_state: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_state.cpp
 $(BINDIR)/test_dg_city: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_city.cpp
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_city.cpp -o $(BINDIR)/test_dg_city
 
-all: $(BINDIR)/dg $(BINDIR)/test_dg_lastname $(BINDIR)/test_dg_firstname $(BINDIR)/test_dg_city $(BINDIR)/test_dg_state
+$(BINDIR)/test_dg_alpha: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_alpha.cpp 
+	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_alpha.cpp -o $(BINDIR)/test_dg_alpha
+
+all: $(BINDIR)/dg $(BINDIR)/test_dg_lastname $(BINDIR)/test_dg_firstname $(BINDIR)/test_dg_city $(BINDIR)/test_dg_state $(BINDIR)/test_dg_alpha
 
 clean:
 	rm -rf $(BINDIR)
@@ -36,3 +40,4 @@ test:
 	bin/test_dg_lastname
 	bin/test_dg_city
 	bin/test_dg_state
+	bin/test_dg_alpha
