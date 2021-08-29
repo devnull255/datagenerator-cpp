@@ -28,7 +28,10 @@ $(BINDIR)/test_dg_city: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_city.cpp
 $(BINDIR)/test_dg_alpha: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_alpha.cpp 
 	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_alpha.cpp -o $(BINDIR)/test_dg_alpha
 
-all: $(BINDIR)/dg $(BINDIR)/test_dg_lastname $(BINDIR)/test_dg_firstname $(BINDIR)/test_dg_city $(BINDIR)/test_dg_state $(BINDIR)/test_dg_alpha
+$(BINDIR)/test_dg_numeric: $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_numeric.cpp 
+	$(CC) $(CFLAGS) $(LIBDIR)/datagenerator.o $(SRCDIR)/test_dg_numeric.cpp -o $(BINDIR)/test_dg_numeric
+
+all: $(BINDIR)/dg $(BINDIR)/test_dg_lastname $(BINDIR)/test_dg_firstname $(BINDIR)/test_dg_city $(BINDIR)/test_dg_state $(BINDIR)/test_dg_alpha $(BINDIR)/test_dg_numeric
 
 clean:
 	rm -rf $(BINDIR)
@@ -41,3 +44,4 @@ test:
 	bin/test_dg_city
 	bin/test_dg_state
 	bin/test_dg_alpha
+	bin/test_dg_numeric

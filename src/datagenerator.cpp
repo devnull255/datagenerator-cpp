@@ -75,7 +75,14 @@ string DataGenerator::alpha(unsigned len) {
 
 
 string DataGenerator::numeric(unsigned len) {
-
+  uniform_int_distribution<int> distribution(0,9);
+  ostringstream outstring;
+  int d;
+  for(int i=0; i < len; i++) {
+    d = distribution(_generator);
+    outstring << d;;
+  }
+  return outstring.str();
 }
 
 string DataGenerator::alphanum(unsigned len) {
